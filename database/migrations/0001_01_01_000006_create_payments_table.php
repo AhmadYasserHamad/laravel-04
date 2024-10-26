@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id(); // `id` BIGINT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT
-            $table->string('name'); // `name` VARCHAR(255) NOT NULL
-            $table->string('email')->unique();
-            $table->string('mobile', 11)->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+        Schema::create('orders', function (Blueprint $table) {
+            $table->number('orderNumber'); // `id` BIGINT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT
+            $table->timestamp('orderDate');
+            $table->timestamp('requiredDate');
+            $table->timestamp('shippedDate');
+            $table->string('status');
+            $table->string('comments');
+            $table->number('customerNumber');
             $table->timestamps();
         });
 
